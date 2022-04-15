@@ -1,0 +1,10 @@
+.sidebar {
+    grid-area: nav;
+    background-color: aquamarine;
+}
+.item {
+    color: red;
+}
+.item.active {
+    color: gold;
+}

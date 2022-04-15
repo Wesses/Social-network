@@ -1,0 +1,8 @@
+.post {
+    color: darkmagenta;
+}
+.post img{
+    height: 50px;
+    width: 50px;
+    border-radius: 500px;
+}
