@@ -1,32 +1,32 @@
 import classes from "./NavBar.module.css";
 import {NavLink} from "react-router-dom";
-const setAvtivve = ({isActive}) => isActive ? classes.active : classes.item
+const setActive = ({isActive}) => isActive ? classes.active : classes.item
 
 const NavBar = () => {
     return (
         <nav className={classes.sidebar}>
             <div>
-                <NavLink to="/profile" className={setAvtivve}>
+                <NavLink to="/profile" className={setActive}>
                     Profile
                 </NavLink>
             </div>
             <div>
-                <NavLink to="/dialogs" className={setAvtivve}>
+                <NavLink to="/dialogs" className={setActive}>
                     Dialogs
                 </NavLink>
             </div>
             <div>
-                <NavLink to="/news" className={setAvtivve}>
+                <NavLink to="/news" className={setActive}>
                     News
                 </NavLink>
             </div>
             <div>
-                <NavLink to="/music" className={setAvtivve}>
+                <NavLink to="/music" className={setActive}>
                     Music
                 </NavLink>
             </div>
             <div>
-                <NavLink to="/settings" className={setAvtivve}>
+                <NavLink to="/settings" className={setActive}>
                     Settings
                 </NavLink>
             </div>
