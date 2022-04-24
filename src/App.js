@@ -7,18 +7,19 @@ import {Route, Routes} from "react-router-dom";
 import Music from "./Components/Music/Music";
 import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
+import FirstPage from "./Components/FIrstPage/FirstPage";
 
 
-const App = () => {
+const App = (props) => {
     return (
             <div className="app-wrapper">
                 <Header/>
                 <NavBar/>
                 <div className="app-wrapper-content">
                     <Routes>
-                        <Route path = "/" element = {<Profile />} />
-                        <Route path = "/dialogs/*" element = {<Dialogs />} />
-                        <Route path = "/profile" element = {<Profile />} />
+                        <Route path = "/" element = {<FirstPage />} />
+                        <Route path = "/dialogs/*" element = {<Dialogs state = {props.state.dialogstate}/>} />
+                        <Route path = "/profile" element = {<Profile state={props.state.poststate} />} />
                         <Route path = "/music" element = {<Music/>} />
                         <Route path = "/news" element = {<News/>} />
                         <Route path = "/settings" element = {<Settings/>} />

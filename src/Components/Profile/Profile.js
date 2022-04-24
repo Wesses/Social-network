@@ -3,14 +3,14 @@ import MyPost from "./MyPost/MyPost";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={classes.content}>
             <div>
-                <img className={classes.MainP} alt="" src ="https://chudo-udo.info/media/k2/items/cache/46b48ff5dea1e8c04bc5a53cc4723d74_XL.jpg" />
+                <img className={classes.MainP} alt="" src ="https://w.wallhaven.cc/full/wq/wallhaven-wqkqvr.png" />
             </div>
            <ProfileInfo/>
-          <MyPost/>
+          <MyPost PostsData={props.state.PostsData}/>
         </div>
     )
 }

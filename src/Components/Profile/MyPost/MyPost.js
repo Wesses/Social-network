@@ -1,7 +1,12 @@
 import classes from "./MyPost.module.css";
 import Post from "./Post/Post";
 
-const MyPost = () => {
+
+
+const MyPost = (props) => {
+
+    let PostsMapping = props.PostsData.map(m => <Post key={m.like+m.id} text={m.text} like={m.like}/>)
+
     return (
         <div className={classes.content}>
             <div className={classes.item}>
@@ -24,11 +29,7 @@ const MyPost = () => {
                 </div>
             </div>
             <div className={classes.posts}>
-                <Post text="je mange" like="50"/>
-                <Post text="la mange" like="25"/>
-                <Post text="fromage" like="13"/>
-                <Post text="Ura petuh" like="0"/>
-                <Post text="Ura dura" like="10"/>
+                {PostsMapping}
             </div>
         </div>
     );

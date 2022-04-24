@@ -1,6 +1,6 @@
 .sidebar {
     grid-area: nav;
-    background-color: chocolate;
+    background-color: #329473;
     padding: 20px;
 }
 .item {
