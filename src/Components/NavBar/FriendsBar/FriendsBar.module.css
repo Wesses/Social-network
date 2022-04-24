@@ -1,0 +1,14 @@
+.friendsBar{
+
+}
+.avatarImg{
+    height: 50px;
+    width: 50px;
+    border-radius: 500px;
+}
+.active{
+    color: gold;
+}
+.item{
+    color: black;
+}

@@ -1,8 +1,11 @@
 import classes from "./NavBar.module.css";
 import {NavLink} from "react-router-dom";
+import FriendsBar from "./FriendsBar/FriendsBar";
 const setActive = ({isActive}) => isActive ? classes.active : classes.item
 
-const NavBar = () => {
+const NavBar = (props) => {
+    let BFriendMapping = props.state.BFriendsData.map(m => <FriendsBar key={m.id + m.name} name={m.name}
+                                                             avatar={m.avatar}/>);
     return (
         <nav className={classes.sidebar}>
             <div>
@@ -29,6 +32,11 @@ const NavBar = () => {
                 <NavLink to="/settings" className={setActive}>
                     Settings
                 </NavLink>
+            </div>
+
+            <div className={classes.navfriends}>
+                <h3>Friends</h3>
+                {BFriendMapping}
             </div>
         </nav>
     )

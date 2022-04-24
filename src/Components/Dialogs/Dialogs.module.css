@@ -1,7 +1,7 @@
 .area{
     display: grid;
 
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
 }
 
 .dialogs {
@@ -10,6 +10,16 @@
 .dialog {
     color:black;
 }
+.avatarImg{
+    height: 50px;
+    width: 50px;
+    border-radius: 500px;
+}
+
+.avablock{
+    justify-self: end;
+}
+
 .active{
     color: gold;
 }
@@ -17,6 +27,12 @@
 .messages{
     color: #942A1C;
     padding: 10px;
+}
+
+.mymessages{
+    color: #942A1C;
+    padding: 10px;
+    justify-self: end;
 }
 .message {
 
