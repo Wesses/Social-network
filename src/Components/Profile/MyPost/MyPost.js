@@ -1,11 +1,22 @@
 import classes from "./MyPost.module.css";
 import Post from "./Post/Post";
-
+import React from 'react';
 
 
 const MyPost = (props) => {
 
-    let PostsMapping = props.PostsData.map(m => <Post key={m.like+m.id} text={m.text} like={m.like}/>)
+    let PostsMapping = props.PostsData.map(m => <Post key={m.like + m.id} text={m.text} like={m.like}/>)
+
+    let NewPostText = React.createRef();
+
+    let AddPost = () => {
+        let text = NewPostText.current.value;
+        props.addPost(text);
+    }
+
+    let RemovePost = () => {
+        NewPostText.current.value = "";
+    }
 
     return (
         <div className={classes.content}>
@@ -16,14 +27,13 @@ const MyPost = (props) => {
             </div>
             <div>
                 <div>
-                    <textarea>
-                    </textarea>
+                    <textarea className={classes.postcontent} ref={NewPostText}></textarea>
                 </div>
                 <div>
-                    <button>
+                    <button className={classes.addbutton} onClick={AddPost}>
                         Add post
                     </button>
-                    <button>
+                    <button className={classes.removebutton} onClick={RemovePost}>
                         Remove
                     </button>
                 </div>

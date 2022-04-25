@@ -10,7 +10,7 @@ const Profile = (props) => {
                 <img className={classes.MainP} alt="" src ="https://w.wallhaven.cc/full/wq/wallhaven-wqkqvr.png" />
             </div>
            <ProfileInfo/>
-          <MyPost PostsData={props.state.PostsData}/>
+          <MyPost PostsData={props.state.PostsData} addPost={props.addPost}/>
         </div>
     )
 }

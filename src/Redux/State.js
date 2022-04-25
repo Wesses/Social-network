@@ -1,3 +1,5 @@
+import {renderEntireTree} from "../render";
+
 let state = {
 
     dialogstate: {
@@ -42,4 +44,26 @@ let state = {
         ]
     }
 }
+
+export let addPost = (posttext) => {
+    state.poststate.PostsData.push(
+        {
+            id: 6,
+            text:posttext,
+            like:99
+        }
+    )
+    renderEntireTree(state);
+}
+
+export let sendMyMassage = (messagetext) => {
+    state.dialogstate.MyMessagesData.push(
+        {
+            id: 4,
+            message:messagetext,
+        }
+    )
+    renderEntireTree(state);
+}
+
 export default state;
