@@ -72,6 +72,7 @@ export let sendMyMessage = () => {
             message:state.dialogstate.newMyMessageText,
         }
     )
+    state.dialogstate.newMyMessageText="";
     renderEntireTree(state);
 }
 

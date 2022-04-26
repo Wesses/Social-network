@@ -18,8 +18,7 @@ const MyPost = (props) => {
     }
 
     let changeNewPost = () =>{
-        let text = NewPost.current.value;
-        props.updateNewPostText(text)
+        props.updateNewPostText(NewPost.current.value)
     }
 
     return (
