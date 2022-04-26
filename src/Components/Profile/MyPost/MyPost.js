@@ -5,17 +5,21 @@ import React from 'react';
 
 const MyPost = (props) => {
 
-    let PostsMapping = props.PostsData.map(m => <Post key={m.like + m.id} text={m.text} like={m.like}/>)
+    let PostsMapping = props.poststate.PostsData.map(m => <Post key={m.like + m.id} text={m.text} like={m.like}/>)
 
-    let NewPostText = React.createRef();
+    let NewPost = React.createRef();
 
     let AddPost = () => {
-        let text = NewPostText.current.value;
-        props.addPost(text);
+        props.addPost();
     }
 
     let RemovePost = () => {
-        NewPostText.current.value = "";
+        props.updateNewPostText("");
+    }
+
+    let changeNewPost = () =>{
+        let text = NewPost.current.value;
+        props.updateNewPostText(text)
     }
 
     return (
@@ -27,7 +31,10 @@ const MyPost = (props) => {
             </div>
             <div>
                 <div>
-                    <textarea className={classes.postcontent} ref={NewPostText}></textarea>
+                    <textarea className={classes.postcontent}
+                              ref={NewPost}
+                              onChange={changeNewPost}
+                              value={props.poststate.newPostText}/>
                 </div>
                 <div>
                     <button className={classes.addbutton} onClick={AddPost}>

@@ -23,7 +23,8 @@ let state = {
             {id: 1, message: "Hello"},
             {id: 2, message: "Im fine."},
             {id: 3, message: "BB"},
-        ]
+        ],
+        newMyMessageText: "go pvpv"
     },
     poststate: {
         PostsData: [
@@ -33,7 +34,8 @@ let state = {
             {id: 3, text: "fromage", like: 13},
             {id: 4, text: "Ura petuh", like: 0},
             {id: 5, text: "Ura-dura", like: 10}
-        ]
+        ],
+        newPostText: "rtr"
     },
     sidebarstate: {
 
@@ -44,26 +46,40 @@ let state = {
         ]
     }
 }
+window.state=state;
 
-export let addPost = (posttext) => {
+export let addPost = () => {
     state.poststate.PostsData.push(
         {
             id: 6,
-            text:posttext,
+            text: state.poststate.newPostText,
             like:99
+        }
+    )
+    state.poststate.newPostText="";
+    renderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.poststate.newPostText = newText;
+    renderEntireTree(state);
+}
+
+export let sendMyMessage = () => {
+    state.dialogstate.MyMessagesData.push(
+        {
+            id: 4,
+            message:state.dialogstate.newMyMessageText,
         }
     )
     renderEntireTree(state);
 }
 
-export let sendMyMassage = (messagetext) => {
-    state.dialogstate.MyMessagesData.push(
-        {
-            id: 4,
-            message:messagetext,
-        }
-    )
+export let updateMyMessage = (myMessage) => {
+    state.dialogstate.newMyMessageText = myMessage;
     renderEntireTree(state);
 }
+
+
 
 export default state;

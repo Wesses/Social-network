@@ -7,25 +7,34 @@ import {Route, Routes} from "react-router-dom";
 import Music from "./Components/Music/Music";
 import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
-import FirstPage from "./Components/FIrstPage/FirstPage";
+import FirstPage from "./Components/FirstPage/FirstPage";
 
 
 const App = (props) => {
     return (
-            <div className="app-wrapper">
-                <Header/>
-                <NavBar state ={props.state.sidebarstate}/>
-                <div className="app-wrapper-content">
-                    <Routes>
-                        <Route path = "/" element = {<FirstPage />} />
-                        <Route path = "/dialogs/*" element = {<Dialogs state = {props.state.dialogstate} sendMyMassage={props.sendMyMassage}/>} />
-                        <Route path = "/profile" element = {<Profile state={props.state.poststate} addPost={props.addPost}/>} />
-                        <Route path = "/music" element = {<Music/>} />
-                        <Route path = "/news" element = {<News/>} />
-                        <Route path = "/settings" element = {<Settings/>} />
-                    </Routes>
-                </div>
-     </div>
+        <div className="app-wrapper">
+            <Header/>
+            <NavBar state={props.state.sidebarstate}/>
+            <div className="app-wrapper-content">
+                <Routes>
+                    <Route path="/" element={<FirstPage/>}/>
+
+                    <Route path="/dialogs/*" element={<Dialogs
+                        dialogstate={props.state.dialogstate}
+                        sendMyMessage={props.sendMyMessage}
+                        updateMyMessage={props.updateMyMessage}/>}/>
+
+                    <Route path="/profile" element={<Profile
+                        poststate={props.state.poststate}
+                        addPost={props.addPost}
+                        updateNewPostText={props.updateNewPostText}/>}/>
+
+                    <Route path="/music" element={<Music/>}/>
+                    <Route path="/news" element={<News/>}/>
+                    <Route path="/settings" element={<Settings/>}/>
+                </Routes>
+            </div>
+        </div>
     );
 };
 
