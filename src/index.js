@@ -1,28 +1,25 @@
 import reportWebVitals from './reportWebVitals';
-import state from './Redux/State.js'
+import store from './Redux/State.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from "react-router-dom";
-import {addPost, sendMyMessage, updateMyMessage, updateNewPostText, subscribe} from "./Redux/State";
 
 let renderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <Router>
                 <App state={state}
-                     addPost={addPost}
-                     sendMyMessage={sendMyMessage}
-                     updateNewPostText={updateNewPostText}
-                     updateMyMessage={updateMyMessage}/>
+                     dispatch={store.dispatch.bind(store)}/>
             </Router>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
-renderEntireTree(state)
-subscribe(renderEntireTree)
+renderEntireTree(store.getState())
+store.subscribe(renderEntireTree)
+
 // import ReactDOM from 'react-dom/client';
 // export let renderEntireTree = (state) => {
 //     ReactDOM.createRoot(document.getElementById('root')).render(
