@@ -2,7 +2,7 @@ import React from 'react';
 import classes from "./Dialogs.module.css";
 import User from "./Users/User";
 import Message from "./Messages/Message";
-import {sendMyMessageActionCreater, updateMyMessageActionCreater} from "../../Redux/State";
+import {sendMyMessageActionCreater, updateMyMessageActionCreater} from "../../Redux/dialog-reducer";
 
 const Dialogs = (props) => {
     let UsersMapping = props.dialogstate.UsersData.map(m => <User key={m.id + m.name} id={m.id} name={m.name}
@@ -10,14 +10,14 @@ const Dialogs = (props) => {
     let MessagesMapping = props.dialogstate.MessagesData.map(m => <Message key={m.id + m.message} message={m.message}/>)
     let MyMessagesMapping = props.dialogstate.MyMessagesData.map(m => <Message key={m.id + m.message} message={m.message}/>)
 
-    let MessageText = React.createRef();
+    // let MessageText = React.createRef();
 
     let SendMessage = () => {
         props.dispatch(sendMyMessageActionCreater());
     }
 
-    let changeMyMassage = () =>{
-        props.dispatch(updateMyMessageActionCreater(MessageText.current.value));
+    let changeMyMassage = (e) =>{
+        props.dispatch(updateMyMessageActionCreater(e.target.value));
     }
 
     return (
@@ -41,7 +41,6 @@ const Dialogs = (props) => {
             <div className={classes.enter}>
                 <textarea
                     className={classes.enteringarea}
-                    ref={MessageText}
                     value={props.dialogstate.newMyMessageText}
                     onChange={changeMyMassage}/>
                 <div>

@@ -1,7 +1,7 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SEND_MY_MESSAGE = 'SEND-MY-MASSAGE';
-const UPDATE_MY_MESSAGE = 'UPDATE-MY-MESSAGE';
+import profileReducer from "./profile-reducer";
+import dialogReducer from "./dialog-reducer";
+import sidebarReducer from "./sidebar-reducer";
+
 let store = {
 
     _state: {
@@ -28,7 +28,7 @@ let store = {
                 {id: 2, message: "Im fine."},
                 {id: 3, message: "BB"},
             ],
-            newMyMessageText: "go pvpv"
+            newMyMessageText: "input mes"
         },
         poststate: {
             PostsData: [
@@ -36,8 +36,8 @@ let store = {
                 {id: 1, text: "je mange", like: 50},
                 {id: 2, text: "la mange", like: 25},
                 {id: 3, text: "fromage", like: 13},
-                {id: 4, text: "Ura petuh", like: 0},
-                {id: 5, text: "Ura-dura", like: 10}
+                {id: 4, text: "Ura privet", like: 0},
+                {id: 5, text: "Ura poka", like: 10}
             ],
             newPostText: "rtr"
         },
@@ -63,43 +63,12 @@ let store = {
         this._callSubscriber = observer
     },
 
-
-
     dispatch(action) {
-        if (action.type === ADD_POST){
-            this._state.poststate.PostsData.push(
-                {
-                    id: 6,
-                    text: this._state.poststate.newPostText,
-                    like:99
-                }
-            )
-            this._state.poststate.newPostText="";
-        }
-        else if (action.type === UPDATE_NEW_POST_TEXT){
-            this._state.poststate.newPostText = action.newText;
-        }
-        else if (action.type === SEND_MY_MESSAGE){
-
-
-        this._state.dialogstate.MyMessagesData.push(
-            {
-                id: 4,
-                message:this._state.dialogstate.newMyMessageText,
-            }
-        )
-        this._state.dialogstate.newMyMessageText="";
-    }
-        else if(action.type === UPDATE_MY_MESSAGE){
-            this._state.dialogstate.newMyMessageText = action.myMessage;
-        }
+        this._state.poststate=profileReducer(this._state.poststate, action)
+        this._state.dialogstate=dialogReducer(this._state.dialogstate, action)
+        this._state.sidebarstate=sidebarReducer(this._state.sidebarstate, action)
         this._callSubscriber(this._state);
     }
 }
-export const addPostActionCreater = () => ({type: ADD_POST});
-export const updateNewPostActionCreater = (txt) => ({type: UPDATE_NEW_POST_TEXT, newText: txt});
-export const sendMyMessageActionCreater = () => ({type: SEND_MY_MESSAGE});
-export const updateMyMessageActionCreater = (mes) => ({type:UPDATE_MY_MESSAGE, myMessage: mes})
-
 window.store=store;
 export default store;
