@@ -6,21 +6,19 @@ import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from "react-router-dom";
 
-let renderEntireTree = (state) => {
+let renderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
             <Router>
-                <App state={state}
-                     dispatch={store.dispatch.bind(store)}/>
+                <App store = {store}/>
             </Router>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
-renderEntireTree(store.getState())
+renderEntireTree()
 store.subscribe(()=> {
-    let state = store.getState();
-    renderEntireTree(state)})
+    renderEntireTree()})
 
 // import ReactDOM from 'react-dom/client';
 // export let renderEntireTree = (state) => {

@@ -1,6 +1,6 @@
 import classes from "./Profile.module.css";
-import MyPost from "./MyPost/MyPost";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostContainer from "./MyPost/MyPostContainer";
 
 
 const Profile = (props) => {
@@ -10,8 +10,7 @@ const Profile = (props) => {
                 <img className={classes.MainP} alt="" src ="https://w.wallhaven.cc/full/wq/wallhaven-wqkqvr.png" />
             </div>
            <ProfileInfo/>
-          <MyPost poststate={props.poststate}
-                  dispatch={props.dispatch}/>
+          <MyPostContainer store = {props.store}/>
         </div>
     )
 }
