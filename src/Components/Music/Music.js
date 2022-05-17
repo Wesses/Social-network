@@ -3,7 +3,7 @@ import bolt from '../../audio/plenka - Visitor.mp3';
 
 const Music = () => {
     return (
-        <div><h1>Music</h1>
+        <div className={classes.music}><h1>Music</h1>
             <div>
                 <audio src={bolt} controls/>
             </div>

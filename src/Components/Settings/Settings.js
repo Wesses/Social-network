@@ -2,7 +2,7 @@ import classes from "./Settings.module.css"
 
 const Settings = () => {
     return (
-        <div>Settings</div>
+        <div className={classes.settings}>Settings</div>
     )
 }
 
