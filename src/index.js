@@ -18,16 +18,16 @@ createRoot(document.getElementById('root')).render(
     </React.StrictMode>,
 );
 
-// import ReactDOM from 'react-dom/client';
-// export let renderEntireTree = (state) => {
-//     ReactDOM.createRoot(document.getElementById('root')).render(
-//         <React.StrictMode>
-//             <Router>
-//                 <App state={state} addPost={addPost} sendMyMassage={sendMyMassage}/>
-//             </Router>
-//         </React.StrictMode>
-//     );
-// }
+// ReactDOM.render(
+//     <React.StrictMode>
+//         <Router>
+//             <Provider store={store}>
+//                 <App store={store}/>
+//             </Provider>
+//         </Router>
+//     </React.StrictMode>,
+//     (document.getElementById('root'))
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
